@@ -1,0 +1,37 @@
+version: '3.7'
+services: 
+  rest-user:
+    container_name: backend-user
+    image: backend_spring:1.0
+    ports: 
+      - "7788:7788"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/backendSpring
+    networks: 
+      - backend-user
+    depends_on:
+      - database
+#   db:
+#     container_name: database
+#     image: mysql:latest
+#     restart: unless-stopped
+#     environment:
+#       MYSQL_ROOT_PASSWORD: telogosong
+#       MYSQL_DATABASE: diengval_new
+#       MYSQL_USER: diengval
+#       MYSQL_PASSWORD: jHPpdSgQFrKX
+#     ports:
+#       - "3306:3306"
+#     networks: 
+#       - backend-user
+#     volumes:
+#       - db_data:/var/lib/mysql
+
+# volumes:
+#   db_data:
+
+
+networks:
+  backend-user:
+
+
